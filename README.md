@@ -33,7 +33,7 @@ var outputTree = compileSass(inputTrees, inputFile, outputFile, options);
 * **`outputFile`**: Relative path of the output CSS file.
 
 * **`options`**: A hash of options for libsass. Supported options are:
-  `functions`, `indentedSyntax`, `omitSourceMapUrl`, `outputStyle`, `precision`,
+  `functions`, `importer`, `indentedSyntax`, `omitSourceMapUrl`, `outputStyle`, `precision`,
   `sourceComments`, `sourceMap`, `sourceMapEmbed`, and `sourceMapContents`.
 
 * **`nodeSass`**: Allows a different version of [node-sass](https://www.npmjs.com/package/node-sass) to be used.
