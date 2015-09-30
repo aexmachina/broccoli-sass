@@ -34,6 +34,7 @@ function SassCompiler (inputNodes, inputFile, outputFile, options) {
 
   this.sassOptions = {
     functions: options.functions,
+    importer: options.importer,
     indentedSyntax: options.indentedSyntax,
     omitSourceMapUrl: options.omitSourceMapUrl,
     outputStyle: options.outputStyle,
