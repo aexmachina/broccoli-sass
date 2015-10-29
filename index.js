@@ -1,23 +1,23 @@
 var path = require('path');
 var mkdirp = require('mkdirp');
 var includePathSearcher = require('include-path-searcher');
-var CachingWriter = require('broccoli-caching-writer');
 var nodeSass = require('node-sass');
 var assign = require('object-assign');
 var rsvp = require('rsvp');
 var Promise = rsvp.Promise;
 var fs = require('fs');
 var writeFile = rsvp.denodeify(fs.writeFile);
+var Plugin = require('broccoli-plugin');
 
 module.exports = SassCompiler;
-SassCompiler.prototype = Object.create(CachingWriter.prototype);
+SassCompiler.prototype = Object.create(Plugin.prototype);
 SassCompiler.prototype.constructor = SassCompiler;
 
 function SassCompiler (inputNodes, inputFile, outputFile, options) {
   if (!(this instanceof SassCompiler)) { return new SassCompiler(inputNodes, inputFile, outputFile, options); }
   if (!Array.isArray(inputNodes)) { throw new Error('Expected array for first argument - did you mean [tree] instead of tree?'); }
 
-  CachingWriter.call(this, inputNodes, {
+  Plugin.call(this, inputNodes, {
     annotation: options.annotation
   });
 
