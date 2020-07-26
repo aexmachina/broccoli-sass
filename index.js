@@ -1,5 +1,4 @@
 var path = require('path');
-var mkdirp = require('mkdirp');
 var includePathSearcher = require('include-path-searcher');
 var CachingWriter = require('broccoli-caching-writer');
 var assign = require('object-assign');
@@ -73,7 +72,7 @@ module.exports = function(sass) {
       sourceMapFile = destFile + '.map';
     }
 
-    mkdirp.sync(path.dirname(destFile));
+    fs.mkdirSync(path.dirname(destFile), { recursive: true });
 
     var sassOptions = {
       file: includePathSearcher.findFileSync(this.inputFile, this.inputPaths),
